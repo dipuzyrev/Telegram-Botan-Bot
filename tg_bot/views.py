@@ -207,6 +207,10 @@ class PaymentForm(View):
 
 	def get(self, request, order_id):
 		order = Order.objects.get(id=order_id)
+
+		if order.status == 'paid':
+			return redirect('https://t.me/yourBotanBot')
+
 		price = order.price
 		sum = price / 0.98
 
@@ -260,7 +264,7 @@ class PaymentSuccess(View):
 					None,
 					[[InlineKeyboardButton(f'Открыть заказ', callback_data='VIEW_ORDER:' + str(order.id))]]
 				)
-		return HttpResponse('', status_code=200)
+			return HttpResponse('', status_code=200)
 
 
 class IndexPage(View):
