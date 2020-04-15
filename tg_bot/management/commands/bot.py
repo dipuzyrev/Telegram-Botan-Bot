@@ -258,7 +258,7 @@ def new_message(update: Updater, context: CallbackContext):
 			context.user_data['state'] = State.ORDER_FEEDBACK_STEP1_PRICE
 
 		elif btn_select_freelancer in text:
-			feedback_index = int(text[len(btn_select_freelancer):].strip()) - 1
+			feedback_index = int(text.split('№')[1].strip())
 			if 0 <= feedback_index < len(context.user_data['feedback_list']):
 				context.user_data['state'] = State.ORDER_FEEDBACK_APPROVE
 				context.user_data['current_feedback'] = context.user_data['feedback_list'][feedback_index]
@@ -1820,7 +1820,7 @@ def build_order_details_keyboard(context):
 		# approved
 		elif current_order.status == 'approved':
 			for i in range(len(context.user_data['feedback_list'])):
-				keyboard.append([btn_select_freelancer + ' ' + str(i + 1)])
+				keyboard.append([btn_select_freelancer + ' №' + str(i + 1)])
 			# if current_order.files:
 			# 	keyboard.append([btn_show_files])
 			keyboard.append([btn_cancel_order])

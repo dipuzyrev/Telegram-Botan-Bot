@@ -236,7 +236,7 @@ class PaymentSuccess(View):
 		str = f'{notification_type}&{operation_id}&{amount}&' \
 			  f'{currency}&{datetime}&{sender}&{codepro}&{notification_secret}&{label}'
 
-		h = hashlib.sha1(str).hexdigest()
+		h = hashlib.sha1(str.encode('utf-8')).hexdigest()
 
 		if h == request.POST['sha1_hash']:
 			order = Order.objects.get(id=int(label))
