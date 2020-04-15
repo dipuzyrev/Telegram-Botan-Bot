@@ -222,6 +222,9 @@ class PaymentForm(View):
 
 class PaymentSuccess(View):
 	def post(self, request):
+
+		print(request.POST)
+
 		amount = request.POST['amount']
 		label = request.POST['label']
 		notification_type = request.POST['notification_type']
@@ -262,17 +265,7 @@ class PaymentSuccess(View):
 					'',
 					'order_paid.png',
 					None,
-					[[InlineKeyboardButton(f'Открыть заказ', callback_data='VIEW_ORDER:' + str(order.id))]]
-				)
-			else:
-				notify_user(
-					bot,
-					order.customer.external_id,
-					'Что-то пошло не так... Но мы уже работаем над этим.',
-				)
-				notify_admin(
-					bot,
-					'Что-то пошло не так... Order ID: ' + str(order.id),
+					[[InlineKeyboardButton(f'Открыть заказ', callback_data=f'VIEW_ORDER: {order.id}')]]
 				)
 
 			return HttpResponse('', status_code=200)
