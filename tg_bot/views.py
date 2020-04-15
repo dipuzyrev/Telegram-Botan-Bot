@@ -46,7 +46,7 @@ class IndexPage(View):
 	template = 'tg_bot/index.html'
 
 	def get(self, request):
-		URL = "https://money.yandex.run"
+		URL = "https://money.yandex.ru/api/instance-id"
 
 		# defining a params dict for the parameters to be sent to the API
 		data = {'client_id': 'C991DB674E05CAA680300A74455AC1D1A1A702F8522C7F0CDA7972C4D6F1B6F6'}
