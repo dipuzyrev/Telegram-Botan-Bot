@@ -209,7 +209,7 @@ class PaymentForm(View):
 		order = Order.objects.get(id=order_id)
 
 		if order.status == 'paid':
-			return redirect('https://t.me/yourBotanBot')
+			return redirect('https://tttttt.me/yourBotanBot')
 
 		price = order.price
 		sum = price / 0.98
