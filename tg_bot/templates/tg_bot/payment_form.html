@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Оплата</title>
+</head>
+<body>
+<form method="POST" action="https://money.yandex.ru/quickpay/confirm.xml" id="PaymentForm">
+    <input type="hidden" name="receiver" value="410015462421344">
+    <input type="hidden" name="label" value="$order_id">
+    <input type="hidden" name="quickpay-form" value="shop">
+    <input type="hidden" name="targets" value="{{ order_id }}">
+    <input type="hidden" name="sum" value="{{ sum }}" data-type="number">
+    <input type="hidden" name="comment" value="Оплата заказа">
+    <input type="hidden" name="need-fio" value="false">
+    <input type="hidden" name="need-email" value="false">
+    <input type="hidden" name="need-phone" value="false">
+    <input type="hidden" name="need-address" value="false">
+    <input type="hidden" name="paymentType" value="AC">
+    <input type="submit" value="Оплатить">
+</form>
+
+<script>
+    document.getElementById("PaymentForm").submit()
+</script>
+</body>
+</html>

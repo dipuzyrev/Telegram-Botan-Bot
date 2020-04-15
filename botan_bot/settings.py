@@ -113,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 
@@ -132,5 +132,12 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Bot's settings
 
-TOKEN = '1004328512:AAFcQFXiXx5CJlNhEAq2Rf4oD62Uvr7bba0'
+TOKEN = '999942955:AAGAerfUIErb6lNprU1CI1DNTRN7r14m9aM'
+
+# ADMIN_TOKEN = '1115613313:AAFep1i_jhBu6KrvxQrcY_v6uTg4IXgd6fw'
 ADMIN_CHAT_ID = '617698908'
+ADMIN_USERNAME = 'puzyrevdmi'
+ADMIN_DOMAIN = 'http://127.0.0.1:8000'
+
+TEXT_LIMIT = 4096
+CAPTION_LIMIT = 1024

@@ -8,6 +8,9 @@ class ProfileForm(forms.ModelForm):
         fields = (
             'external_id',
             'name',
+            'balance',
+            'promo_code',
+            'keywords'
         )
         widgets = {
             'name': forms.TextInput,
@@ -25,3 +28,22 @@ class PaymentRequestForm(forms.Form):
 class PaymentConfirmationForm(forms.Form):
     chat_id = forms.IntegerField(required=True)
     chat_number = forms.IntegerField(required=True)
+
+
+class MoneyOutRequestConfirmationForm(forms.Form):
+    request_id = forms.IntegerField(required=True)
+
+
+class ApproveOrderForm(forms.Form):
+    order_id = forms.IntegerField(required=True)
+
+
+class MessageFromSupportForm(forms.Form):
+    user_id = forms.IntegerField(required=True)
+    text = forms.CharField(required=True)
+
+
+class OrderFeedbackForm(forms.Form):
+    order_id = forms.IntegerField(required=True)
+    price = forms.IntegerField(required=True)
+    comment = forms.CharField(required=True)

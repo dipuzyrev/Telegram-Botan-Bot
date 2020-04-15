@@ -2,16 +2,71 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="508a0d97-626d-400c-b2cc-871a148ce514" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Procfile" beforeDir="false" afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/botan_bot/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/botan_bot/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tg_bot/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/tg_bot/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tg_bot/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/tg_bot/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tg_bot/management/commands/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/tg_bot/management/commands/bot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tg_bot/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/tg_bot/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tg_bot/templates/tg_bot/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tg_bot/templates/tg_bot/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tg_bot/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/tg_bot/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tg_bot/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/tg_bot/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db.sqlite3" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db.sqlite3" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db.sqlite3" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db.sqlite3" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+        <item name="tg_bot_order: table" type="3d80ac25:SqliteImplModel$Table" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -24,12 +79,18 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="ToolWindowServices.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/tg_bot/templates/tg_bot" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tg_bot/templates/tg_bot" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -59,6 +120,18 @@
       <method v="2" />
     </configuration>
   </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -69,7 +142,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1586441557775</updated>
-      <workItem from="1586441586142" duration="9868000" />
+      <workItem from="1586441586142" duration="10033000" />
+      <workItem from="1586572937018" duration="42076000" />
+      <workItem from="1586697937397" duration="123577000" />
     </task>
     <servers />
   </component>
@@ -77,21 +152,53 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="240" y="65" key="#Inspections" timestamp="1586727040047">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="240" y="65" key="#Inspections/0.0.1280.800@0.0.1280.800" timestamp="1586727040047" />
     <state x="240" y="65" key="#Python" timestamp="1586444513553">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="240" y="65" key="#Python/0.0.1280.800@0.0.1280.800" timestamp="1586444513553" />
+    <state x="240" y="65" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586576133397">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="240" y="65" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.800@0.0.1280.800" timestamp="1586576133397" />
+    <state x="378" y="154" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1586723360546">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="378" y="154" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.800@0.0.1280.800" timestamp="1586723360546" />
     <state x="223" y="3" key="CommitChangelistDialog2" timestamp="1586454479853">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="223" y="3" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1586454479853" />
-    <state x="141" y="39" key="SettingsEditor" timestamp="1586443597599">
+    <state width="239" height="457" key="HiddenNamespacesPopup" timestamp="1586576140397">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="141" y="39" key="SettingsEditor/0.0.1280.800@0.0.1280.800" timestamp="1586443597599" />
-    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup" timestamp="1586443332038">
+    <state width="239" height="457" key="HiddenNamespacesPopup/0.0.1280.800@0.0.1280.800" timestamp="1586576140397" />
+    <state x="141" y="39" key="SettingsEditor" timestamp="1586975765364">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup/0.0.1280.800@0.0.1280.800" timestamp="1586443332038" />
+    <state x="141" y="39" key="SettingsEditor/0.0.1280.800@0.0.1280.800" timestamp="1586975765364" />
+    <state x="457" y="304" width="365" height="219" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1586576295961">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="457" y="304" width="365" height="219" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1280.800@0.0.1280.800" timestamp="1586576295961" />
+    <state x="369" y="90" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1586576276241">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="369" y="90" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1280.800@0.0.1280.800" timestamp="1586576276241" />
+    <state x="298" y="157" width="683" height="486" key="find.popup" timestamp="1586705530387">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="298" y="157" width="683" height="486" key="find.popup/0.0.1280.800@0.0.1280.800" timestamp="1586705530387" />
+    <state x="402" y="36" key="refactoring.ChangeSignatureDialog" timestamp="1586726239142">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="402" y="36" key="refactoring.ChangeSignatureDialog/0.0.1280.800@0.0.1280.800" timestamp="1586726239142" />
+    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup" timestamp="1586750920559">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup/0.0.1280.800@0.0.1280.800" timestamp="1586750920559" />
   </component>
 </project>
