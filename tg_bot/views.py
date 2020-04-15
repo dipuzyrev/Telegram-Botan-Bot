@@ -240,7 +240,7 @@ class PaymentSuccess(View):
 
 		if h == request.POST['sha1_hash']:
 			order = Order.objects.get(id=int(label))
-			if order.status == 'approved' and (order.price - 1) <= amount:
+			if order.status == 'approved' and (order.price - 1) <= int(amount):
 				order.status = 'paid'
 				order.save()
 
