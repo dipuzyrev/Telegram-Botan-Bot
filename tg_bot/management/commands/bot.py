@@ -1192,8 +1192,8 @@ def send_order_feedback(context):
 	notify_user(
 		context.bot,
 		order.customer.external_id,
-		'Новая заявка от фрилансера...', None, None,
-		[[InlineKeyboardButton(f'Открыть заказ', callback_data='VIEW_ORDER:' + str(order.id))]]
+		'', 'new_order_feedback.png', None,
+		[[InlineKeyboardButton(f'Подробнее', callback_data='VIEW_ORDER:' + str(order.id))]]
 	)
 
 
