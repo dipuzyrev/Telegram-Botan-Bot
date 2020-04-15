@@ -58,5 +58,5 @@ class IndexPage(View):
 		# extracting data in json format
 		data = r.json()
 
-		return render(request, template_name=self.template, context=data)
+		return render(request, template_name=self.template, context={'data': data})
 
