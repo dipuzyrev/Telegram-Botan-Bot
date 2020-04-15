@@ -623,6 +623,7 @@ def show_state(update, context, add_to_log=True):
 
 	elif state_to_show == State.MINUS_MONEY_SENT:
 		go_back(context)
+		go_back(context)
 		show_state(update, context)
 
 	elif state_to_show == State.SUPPORT_CHAT:
