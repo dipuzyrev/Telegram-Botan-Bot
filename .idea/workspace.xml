@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="508a0d97-626d-400c-b2cc-871a148ce514" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/botan_bot/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/botan_bot/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tg_bot/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/tg_bot/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tg_bot/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/tg_bot/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tg_bot/management/commands/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/tg_bot/management/commands/bot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tg_bot/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/tg_bot/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tg_bot/templates/tg_bot/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tg_bot/templates/tg_bot/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tg_bot/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/tg_bot/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tg_bot/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/tg_bot/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +133,7 @@
       <updated>1586441557775</updated>
       <workItem from="1586441586142" duration="10033000" />
       <workItem from="1586572937018" duration="42076000" />
-      <workItem from="1586697937397" duration="123577000" />
+      <workItem from="1586697937397" duration="123674000" />
     </task>
     <servers />
   </component>
