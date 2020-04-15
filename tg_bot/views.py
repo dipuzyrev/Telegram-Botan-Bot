@@ -3,6 +3,8 @@ from django.views.generic import View, FormView
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 import hashlib
+from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponse
 
 from .models import *
 from .forms import *
@@ -214,6 +216,7 @@ class PaymentForm(View):
 		})
 
 
+@csrf_exempt
 class PaymentSuccess(View):
 	def post(self, request):
 		amount = request.POST['amount']
@@ -257,6 +260,8 @@ class PaymentSuccess(View):
 					None,
 					[[InlineKeyboardButton(f'Открыть заказ', callback_data='VIEW_ORDER:' + str(order.id))]]
 				)
+		return HttpResponse('', status_code=200)
+
 
 class IndexPage(View):
 	template = 'tg_bot/index.html'

@@ -10,9 +10,9 @@
 <body>
 <form method="POST" action="https://money.yandex.ru/quickpay/confirm.xml" id="PaymentForm">
     <input type="hidden" name="receiver" value="410015462421344">
-    <input type="hidden" name="label" value="$order_id">
+    <input type="hidden" name="label" value="{{ order_id }}">
     <input type="hidden" name="quickpay-form" value="shop">
-    <input type="hidden" name="targets" value="{{ order_id }}">
+    <input type="hidden" name="targets" value="Ботан на удалёнке">
     <input type="hidden" name="sum" value="{{ sum }}" data-type="number">
     <input type="hidden" name="comment" value="Оплата заказа">
     <input type="hidden" name="need-fio" value="false">
@@ -20,7 +20,6 @@
     <input type="hidden" name="need-phone" value="false">
     <input type="hidden" name="need-address" value="false">
     <input type="hidden" name="paymentType" value="AC">
-    <input type="submit" value="Оплатить">
 </form>
 
 <script>
