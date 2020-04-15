@@ -46,17 +46,40 @@ class IndexPage(View):
 	template = 'tg_bot/index.html'
 
 	def get(self, request):
-		URL = "https://money.yandex.ru/api/instance-id"
+		# URL = "https://money.yandex.ru/api/instance-id"
+		# data = {'client_id': 'C991DB674E05CAA680300A74455AC1D1A1A702F8522C7F0CDA7972C4D6F1B6F6'}
+		# r = requests.post(url=URL, data=data)
+		# r1 = r.json()
 
-		# defining a params dict for the parameters to be sent to the API
-		data = {'client_id': 'C991DB674E05CAA680300A74455AC1D1A1A702F8522C7F0CDA7972C4D6F1B6F6'}
 
-
-		# sending get request and saving the response as response object
+		URL = "https://money.yandex.ru/api/request-external-payment"
+		data = {
+			'pattern_id': 'p2p',
+			'instance_id': 'lst7Nz2YsLdNKhiBep4LXoSZ7BDfHPuXpk9UbaiNASdMzAW4Qn6nujcsTCDFjwwY',
+			'to': '410015462421344',
+			'amount_due': '100.00',
+			'message': 'Ботан на удалёнке — оплата заказа'
+		}
 		r = requests.post(url=URL, data=data)
+		r1 = r.json()
 
-		# extracting data in json format
-		data = r.json()
 
-		return render(request, template_name=self.template, context={'data': data})
+		if r1['status'] == 'success':
+			URL = "https://money.yandex.ru/api/process-external-payment"
+			data = {
+				'request_id': r1['request_id'],
+				'instance_id': 'lst7Nz2YsLdNKhiBep4LXoSZ7BDfHPuXpk9UbaiNASdMzAW4Qn6nujcsTCDFjwwY',
+				'ext_auth_success_uri': 'https://yourbotan.ru/payment_success',
+				'ext_auth_fail_uri': 'https://yourbotan.ru/payment_fail',
+			}
+			r = requests.post(url=URL, data=data)
+			r2 = r.json()
+		else:
+			r2 = 'r1 failed'
+
+
+
+
+
+		return render(request, template_name=self.template, context={'r1': r1, 'r2': r2})
 
