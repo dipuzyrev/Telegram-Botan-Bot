@@ -80,7 +80,7 @@ class MoneyOutRequestConfirmation(FormView, LoginRequiredMixin):
 			base_url=getattr(settings, 'PROXY_URL', None),
 		)
 
-		notify_user(bot, chat_id, '', 'money_out_success.png', None)
+		notify_user(bot, chat_id, '', 'withdraw_success.png', None)
 		return super(MoneyOutRequestConfirmation, self).form_valid(form)
 
 	def form_invalid(self, form):
@@ -143,7 +143,7 @@ class MessageFromSupport(FormView, LoginRequiredMixin):
 			base_url=getattr(settings, 'PROXY_URL', None),
 		)
 
-		notify_user(bot, user_id, '', 'new_support_message.png', None,
+		notify_user(bot, user_id, '', 'message_from_support.png', None,
 					[[InlineKeyboardButton(f'Открыть', callback_data='SUPPORT_CHAT')]])
 
 		return super(MessageFromSupport, self).form_valid(form)
@@ -192,7 +192,7 @@ class LeaveOrderFeedback(FormView, LoginRequiredMixin):
 			bot,
 			customer.external_id,
 			'',
-			'new_order_feedback.png',
+			'new_feedback.png',
 			None,
 			[[InlineKeyboardButton(f'Подробнее', callback_data='VIEW_ORDER:' + str(order.id))]]
 		)
@@ -265,6 +265,14 @@ class PaymentSuccess(View):
 					order.customer.external_id,
 					'',
 					'order_paid.png',
+					None,
+					[[InlineKeyboardButton(f'Открыть заказ', callback_data=f'VIEW_ORDER: {order.id}')]]
+				)
+				notify_user(
+					bot,
+					order.freelancer.external_id,
+					'',
+					'feedback_approved.png',
 					None,
 					[[InlineKeyboardButton(f'Открыть заказ', callback_data=f'VIEW_ORDER: {order.id}')]]
 				)

@@ -494,6 +494,10 @@ def new_callback_query(update: Updater, context: CallbackContext):
 			update.callback_query.answer('Что-то пошло не так...')
 			return
 
+	elif data == 'BALANCE':
+		context.user_data['state'] = State.BALANCE
+		show_state(update.callback_query, context)
+
 	update.callback_query.answer()
 
 
@@ -847,7 +851,7 @@ def notify_freelancers_by_keywords(order_id):
 					freelancer.external_id,
 					f'📚 <b>{order.subject}, {order.type.lower()}</b>\n\n'
 					f'{order.description}',
-					'new_order.png',
+					'new_order_by_keywords.png',
 					None,
 					[[InlineKeyboardButton(f'Подробнее', callback_data='VIEW_ORDER:'+str(order.id))]]
 				)
@@ -1085,7 +1089,7 @@ def send_message_to_chat(context, from_chat_id, to_chat_id, related_to, text, do
 	if related_to == -1:
 		if str(from_chat_id) == settings.ADMIN_CHAT_ID:
 			# Send notification to user
-			notify_user(context.bot, to_chat_id, '', 'new_support_message.png', None,
+			notify_user(context.bot, to_chat_id, '', 'message_from_support.png', None,
 						[[InlineKeyboardButton(f'Открыть', callback_data='SUPPORT_CHAT')]])
 		else:
 			# Send notification to admin
@@ -1101,7 +1105,10 @@ def send_message_to_chat(context, from_chat_id, to_chat_id, related_to, text, do
 					text=message_text,
 					parse_mode='HTML')
 	else:
-		notify_user(context.bot, to_chat_id, '', 'new_order_message.png', None,
+		order = Order.objects.get(id=related_to)
+		img = 'message_from_customer.png' if user_to == order.freelancer else 'message_from_freelancer.png'
+
+		notify_user(context.bot, to_chat_id, '', img, None,
 					[[InlineKeyboardButton(f'Открыть', callback_data='ORDER_CHAT:' + str(related_to))]])
 
 
@@ -1187,7 +1194,7 @@ def send_order_feedback(context):
 	notify_user(
 		context.bot,
 		order.customer.external_id,
-		'', 'new_order_feedback.png', None,
+		'', 'new_feedback.png', None,
 		[[InlineKeyboardButton(f'Подробнее', callback_data='VIEW_ORDER:' + str(order.id))]]
 	)
 
@@ -1221,6 +1228,15 @@ def confirm_order_finishing(context):
 	order.status = 'done'
 	order.rate = context.user_data['order_rating']
 	order.save()
+
+	notify_user(
+		context.bot,
+		freelancer.external_id,
+		'',
+		'order_completed.png',
+		None,
+		[[InlineKeyboardButton(f'Открыть баланс', callback_data='BALANCE')]]
+	)
 
 	context.user_data['order_rating'] = None
 

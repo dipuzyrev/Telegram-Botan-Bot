@@ -4,6 +4,18 @@
     <list default="true" id="508a0d97-626d-400c-b2cc-871a148ce514" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/botan_bot/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/botan_bot/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/balance.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/money_out_success.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/new_order.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/new_order_feedback.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/new_order_message.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/new_support_message.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/order_feedback_success.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/order_paid.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/order_paid.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/settings.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/stats.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/support.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/tg_bot/management/commands/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/tg_bot/management/commands/bot.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tg_bot/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/tg_bot/views.py" afterDir="false" />
     </list>
@@ -136,7 +148,7 @@
       <updated>1586441557775</updated>
       <workItem from="1586441586142" duration="10033000" />
       <workItem from="1586572937018" duration="42076000" />
-      <workItem from="1586697937397" duration="127602000" />
+      <workItem from="1586697937397" duration="129885000" />
     </task>
     <servers />
   </component>
