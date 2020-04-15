@@ -258,7 +258,7 @@ def new_message(update: Updater, context: CallbackContext):
 			context.user_data['state'] = State.ORDER_FEEDBACK_STEP1_PRICE
 
 		elif btn_select_freelancer in text:
-			feedback_index = int(text.split('№')[1].strip())
+			feedback_index = int(text.split('№')[1]) - 1
 			if 0 <= feedback_index < len(context.user_data['feedback_list']):
 				context.user_data['state'] = State.ORDER_FEEDBACK_APPROVE
 				context.user_data['current_feedback'] = context.user_data['feedback_list'][feedback_index]
@@ -854,7 +854,7 @@ def notify_freelancers_by_keywords(order_id):
 					f'{order.description}',
 					'new_order.png',
 					None,
-					[[InlineKeyboardButton(f'Интересно', callback_data='VIEW_ORDER:'+str(order.id))]]
+					[[InlineKeyboardButton(f'Подробнее', callback_data='VIEW_ORDER:'+str(order.id))]]
 				)
 				break
 
@@ -1674,7 +1674,7 @@ def get_order_details_state(context):
 			price = feedback.price
 			counter += 1
 
-			text2 += f'\n\n<b>Заявка {counter}</b>\n'
+			text2 += f'\n\n<b>Заявка №{counter}</b>\n'
 			text2 += f'💵 <b>{price}₽</b>\n'
 			text2 += f'✍️ {comment}'
 
