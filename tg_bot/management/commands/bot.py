@@ -1274,6 +1274,8 @@ def get_statistics_state_text(context):
 	for _ in range(5-round(rating)):
 		stars += '☆'
 
+	as_freelancer_sum = round(as_freelancer_sum * 0.9)
+
 
 	text = '🔢🔢🔢\n\n' \
 			f'<b>Исполнитель:</b>\n' \
