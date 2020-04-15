@@ -243,8 +243,6 @@ def new_message(update: Updater, context: CallbackContext):
 			if 0 <= order_index < len(context.user_data['orders_list']):
 				context.user_data['state'] = State.ORDER_DETAILS
 				context.user_data['current_order'] = context.user_data['orders_list'][order_index]
-			else:
-				print(context.user_data['orders_list'])
 
 		elif text == btn_cancel_order:
 			if context.user_data['current_order']:
@@ -263,9 +261,6 @@ def new_message(update: Updater, context: CallbackContext):
 				context.user_data['state'] = State.ORDER_FEEDBACK_APPROVE
 				context.user_data['current_feedback'] = context.user_data['feedback_list'][feedback_index]
 				save_state_log = False
-			else:
-				print(feedback_index)
-				print(context.user_data['feedback_list'])
 
 		elif text == btn_ok:
 			pay_for_order(context)

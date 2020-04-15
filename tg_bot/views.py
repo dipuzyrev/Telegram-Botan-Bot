@@ -5,13 +5,14 @@ from django.contrib import messages
 import hashlib
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import *
 from .forms import *
 from .management.commands.bot import *
 
 
-class PaymentRequest(FormView):
+class PaymentRequest(FormView, LoginRequiredMixin):
 	"""
 	Send payment request
 	"""
@@ -28,7 +29,7 @@ class PaymentRequest(FormView):
 		return super(PaymentRequest, self).form_invalid(form)
 
 
-class PaymentConfirmation(FormView):
+class PaymentConfirmation(FormView, LoginRequiredMixin):
 	"""
 	Send payment confirmation
 	"""
@@ -44,7 +45,7 @@ class PaymentConfirmation(FormView):
 		return super(PaymentConfirmation, self).form_invalid(form)
 
 
-class MoneyOutRequestConfirmation(FormView):
+class MoneyOutRequestConfirmation(FormView, LoginRequiredMixin):
 	"""
 	Send money out request confirmation
 	"""
@@ -86,7 +87,7 @@ class MoneyOutRequestConfirmation(FormView):
 		return super(MoneyOutRequestConfirmation, self).form_invalid(form)
 
 
-class ApproveOrder(FormView):
+class ApproveOrder(FormView, LoginRequiredMixin):
 	"""
 	Notify freelancers about new order by keywords
 	"""
@@ -109,7 +110,7 @@ class ApproveOrder(FormView):
 		return super(ApproveOrder, self).form_invalid(form)
 
 
-class MessageFromSupport(FormView):
+class MessageFromSupport(FormView, LoginRequiredMixin):
 	"""
 	Send message from support
 	"""
@@ -151,7 +152,7 @@ class MessageFromSupport(FormView):
 		return super(MessageFromSupport, self).form_invalid(form)
 
 
-class LeaveOrderFeedback(FormView):
+class LeaveOrderFeedback(FormView, LoginRequiredMixin):
 	"""
 	Send order feedback
 	"""
@@ -271,7 +272,7 @@ class PaymentSuccess(View):
 			return HttpResponse('', status_code=200)
 
 
-class IndexPage(View):
+class IndexPage(View, LoginRequiredMixin):
 	template = 'tg_bot/index.html'
 
 	def get(self, request):
