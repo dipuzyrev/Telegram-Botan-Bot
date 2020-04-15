@@ -12,10 +12,22 @@
     <br><br>
     <a href="{% url 'payment_confirmation_url' %}">Payment Confirmation</a>
     <br><br>
-    r1:
-    <pre>{{r1}}</pre>
-    <br><br>
-    r2:
-    <pre>{{r2}}</pre>
+    <form method="POST" action="https://money.yandex.ru/quickpay/confirm.xml">
+    <input type="hidden" name="receiver" value="410015462421344">
+    <input type="hidden" name="formcomment" value="Проект «Железный человек»: реактор холодного ядерного синтеза">
+    <input type="hidden" name="short-dest" value="Проект «Железный человек»: реактор холодного ядерного синтеза">
+    <input type="hidden" name="label" value="$order_id">
+    <input type="hidden" name="quickpay-form" value="shop">
+    <input type="hidden" name="targets" value="28">
+    <input type="hidden" name="sum" value="100" data-type="number">
+    <input type="hidden" name="comment" value="Хотелось бы дистанционного управления.">
+    <input type="hidden" name="need-fio" value="true">
+    <input type="hidden" name="need-email" value="true">
+    <input type="hidden" name="need-phone" value="false">
+    <input type="hidden" name="need-address" value="false">
+    <label><input type="radio" name="paymentType" value="PC">Яндекс.Деньгами</label>
+    <label><input type="radio" name="paymentType" value="AC">Банковской картой</label>
+    <input type="submit" value="Перевести">
+</form>
 </body>
 </html>
