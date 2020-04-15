@@ -220,8 +220,8 @@ class PaymentForm(View):
 		})
 
 
-@csrf_exempt
 class PaymentSuccess(View):
+	@csrf_exempt
 	def post(self, request):
 		amount = request.POST['amount']
 		label = request.POST['label']
