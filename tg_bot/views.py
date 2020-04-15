@@ -63,23 +63,25 @@ class IndexPage(View):
 		r = requests.post(url=URL, data=data)
 		r1 = r.json()
 
-
-		if r1['status'] == 'success':
-			URL = "https://money.yandex.ru/api/process-external-payment"
-			data = {
-				'request_id': r1['request_id'],
-				'instance_id': 'lst7Nz2YsLdNKhiBep4LXoSZ7BDfHPuXpk9UbaiNASdMzAW4Qn6nujcsTCDFjwwY',
-				'ext_auth_success_uri': 'https://yourbotan.ru/payment_success',
-				'ext_auth_fail_uri': 'https://yourbotan.ru/payment_fail',
-			}
-			r = requests.post(url=URL, data=data)
-			r2 = r.json()
-		else:
-			r2 = 'r1 failed'
+		link = 'https://money.yandex.ru/transfer/quickpay?requestId=' + r1['request_id']
 
 
+		# if r1['status'] == 'success':
+		# 	URL = "https://money.yandex.ru/api/process-external-payment"
+		# 	data = {
+		# 		'request_id': r1['request_id'],
+		# 		'instance_id': 'lst7Nz2YsLdNKhiBep4LXoSZ7BDfHPuXpk9UbaiNASdMzAW4Qn6nujcsTCDFjwwY',
+		# 		'ext_auth_success_uri': 'https://yourbotan.ru/payment_success',
+		# 		'ext_auth_fail_uri': 'https://yourbotan.ru/payment_fail',
+		# 	}
+		# 	r = requests.post(url=URL, data=data)
+		# 	r2 = r.json()
+		# else:
+		# 	r2 = 'r1 failed'
 
 
 
-		return render(request, template_name=self.template, context={'r1': r1, 'r2': r2})
+
+
+		return render(request, template_name=self.template, context={'r1': r1, 'link': link})
 
