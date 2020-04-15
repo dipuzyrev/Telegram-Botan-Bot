@@ -240,20 +240,21 @@ class PaymentSuccess(View):
 
 		if h == request.POST['sha1_hash']:
 			order = Order.objects.get(id=int(label))
-			if order.status == 'approved' and (order.price - 1) <= int(amount):
+
+			request = Request(
+				connect_timeout=5,
+				read_timeout=1.0,
+			)
+
+			bot = Bot(
+				request=request,
+				token=settings.TOKEN,
+				base_url=getattr(settings, 'PROXY_URL', None),
+			)
+
+			if order.status == 'approved' and (order.price - 1) <= float(amount):
 				order.status = 'paid'
 				order.save()
-
-				request = Request(
-					connect_timeout=5,
-					read_timeout=1.0,
-				)
-
-				bot = Bot(
-					request=request,
-					token=settings.TOKEN,
-					base_url=getattr(settings, 'PROXY_URL', None),
-				)
 
 				notify_user(
 					bot,
@@ -263,6 +264,17 @@ class PaymentSuccess(View):
 					None,
 					[[InlineKeyboardButton(f'Открыть заказ', callback_data='VIEW_ORDER:' + str(order.id))]]
 				)
+			else:
+				notify_user(
+					bot,
+					order.customer.external_id,
+					'Что-то пошло не так... Но мы уже работаем над этим.',
+				)
+				notify_admin(
+					bot,
+					'Что-то пошло не так... Order ID: ' + str(order.id),
+				)
+
 			return HttpResponse('', status_code=200)
 
 
