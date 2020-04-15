@@ -215,7 +215,7 @@ class PaymentForm(View):
 		sum = price / 0.98
 
 		return render(request, template_name=self.template, context={
-			'order_id': order.id,
+			'order_id': order_id,
 			'sum': sum,
 		})
 
