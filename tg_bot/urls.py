@@ -12,4 +12,5 @@ urlpatterns = [
 	path('order_feedback/', LeaveOrderFeedback.as_view(), name='order_feedback_url'),
 	path('pay/<int:order_id>', PaymentForm.as_view(), name='payment_form_url'),
 	path('payment_success/', PaymentSuccess.as_view(), name='payment_success_url'),
+	path('mass_mail/', MassMail.as_view(), name='mass_mail_url'),
 ]

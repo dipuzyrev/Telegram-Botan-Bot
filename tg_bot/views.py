@@ -298,6 +298,40 @@ class PaymentSuccess(View):
 			return HttpResponse('', status_code=200)
 
 
+class MassMail(LoginRequiredMixin, FormView):
+	"""
+	Send mass mail
+	"""
+	template_name = 'tg_bot/simple_form.html'
+	success_url = '/'
+	form_class = MassMailForm
+
+	def form_valid(self, form):
+		text = form.cleaned_data['text']
+
+		profiles = Profile.objects.all()
+
+		request = Request(
+			connect_timeout=5,
+			read_timeout=1.0,
+		)
+
+		bot = Bot(
+			request=request,
+			token=settings.TOKEN,
+			base_url=getattr(settings, 'PROXY_URL', None),
+		)
+
+		for profile in profiles:
+			notify_user(bot, profile.external_id, text)
+
+		return super(MassMail, self).form_valid(form)
+
+	def form_invalid(self, form):
+		return super(MassMail, self).form_invalid(form)
+
+
+
 class IndexPage(LoginRequiredMixin, View):
 	template = 'tg_bot/index.html'
 

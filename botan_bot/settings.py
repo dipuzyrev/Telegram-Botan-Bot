@@ -133,7 +133,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Bot's settings
 
 # @testYourBotanBot
-# TOKEN = '999942955:AAGAerfUIErb6lNprU1CI1DNTRN7r14m9aM'
+#TOKEN = '999942955:AAGAerfUIErb6lNprU1CI1DNTRN7r14m9aM'
 
 # @yourBotanBot
 TOKEN = '1004328512:AAFcQFXiXx5CJlNhEAq2Rf4oD62Uvr7bba0'

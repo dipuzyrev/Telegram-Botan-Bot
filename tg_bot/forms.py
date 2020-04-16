@@ -38,6 +38,10 @@ class ApproveOrderForm(forms.Form):
     order_id = forms.IntegerField(required=True)
 
 
+class MassMailForm(forms.Form):
+    text = forms.CharField(required=True, widget=forms.Textarea)
+
+
 class MessageFromSupportForm(forms.Form):
     user_id = forms.IntegerField(required=True)
     text = forms.CharField(required=True)
