@@ -753,18 +753,15 @@ def show_state(update, context, add_to_log=True):
 
 
 @log_errors
-def notify_admin(bot, text):
+def notify_admin(bot, text, photo=None, document=None, inline_buttons=None):
 	"""
 	Notifies admin about client's actions
 	:param text: notification text
 	:return:
 	"""
 
-	bot.send_message(
-		chat_id=settings.ADMIN_CHAT_ID,
-		text=text,
-		parse_mode='HTML'
-	)
+	user_chat_id = settings.ADMIN_CHAT_ID
+	notify_user(bot, text, user_chat_id, photo, document, inline_buttons)
 
 
 @log_errors
@@ -1158,7 +1155,13 @@ def send_order(context):
 	# TODO: create tg:// link for username
 	notify_admin(
 		context.bot,
-		f'<a href="{settings.ADMIN_DOMAIN}/admin/tg_bot/order/{order.id}/change/">Новый заказ</a> от @{username}.'
+		f'<a href="{settings.ADMIN_DOMAIN}/admin/tg_bot/order/{order.id}/change/">Новый заказ</a> от @{username}.\n\n'
+		f'📚 <b>{context.user_data["current_order"].subject}, '
+		f'{context.user_data["current_order"].type.lower()}</b>\n\n'
+		f'{context.user_data["current_order"].description}',
+		None,
+		None,
+		[[InlineKeyboardButton(f'Подробнее', callback_data='VIEW_ORDER:' + str(order.id))]]
 	)
 
 
