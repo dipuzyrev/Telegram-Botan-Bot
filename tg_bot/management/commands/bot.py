@@ -761,7 +761,7 @@ def notify_admin(bot, text, photo=None, document=None, inline_buttons=None):
 	"""
 
 	user_chat_id = settings.ADMIN_CHAT_ID
-	notify_user(bot, text, user_chat_id, photo, document, inline_buttons)
+	notify_user(bot, user_chat_id, text, photo, document, inline_buttons)
 
 
 @log_errors
@@ -1152,13 +1152,15 @@ def send_order(context):
 		status='new',
 	)
 
+
+
 	# TODO: create tg:// link for username
 	notify_admin(
 		context.bot,
 		f'<a href="{settings.ADMIN_DOMAIN}/admin/tg_bot/order/{order.id}/change/">Новый заказ</a> от @{username}.\n\n'
-		f'📚 <b>{context.user_data["current_order"].subject}, '
-		f'{context.user_data["current_order"].type.lower()}</b>\n\n'
-		f'{context.user_data["current_order"].description}',
+		f'📚 <b>{order.subject}, '
+		f'{order.type.lower()}</b>\n\n'
+		f'{order.description}',
 		None,
 		None,
 		[[InlineKeyboardButton(f'Подробнее', callback_data='VIEW_ORDER:' + str(order.id))]]
