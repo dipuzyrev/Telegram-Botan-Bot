@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="508a0d97-626d-400c-b2cc-871a148ce514" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tg_bot/management/commands/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/tg_bot/management/commands/bot.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -134,7 +133,7 @@
       <updated>1586441557775</updated>
       <workItem from="1586441586142" duration="10033000" />
       <workItem from="1586572937018" duration="42076000" />
-      <workItem from="1586697937397" duration="132016000" />
+      <workItem from="1586697937397" duration="132097000" />
     </task>
     <servers />
   </component>
