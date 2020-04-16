@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '_!#(lk#ldw3dcm@8g*eu=l#rv2!1ikgpz-#psneraty=)8sn#^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['botan-bot.herokuapp.com', '127.0.0.1', 'yourbotan.ru']
 
