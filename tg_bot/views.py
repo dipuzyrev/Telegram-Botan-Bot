@@ -12,7 +12,7 @@ from .forms import *
 from .management.commands.bot import *
 
 
-class PaymentRequest(FormView, LoginRequiredMixin):
+class PaymentRequest(LoginRequiredMixin, FormView):
 	"""
 	Send payment request
 	"""
@@ -29,7 +29,7 @@ class PaymentRequest(FormView, LoginRequiredMixin):
 		return super(PaymentRequest, self).form_invalid(form)
 
 
-class PaymentConfirmation(FormView, LoginRequiredMixin):
+class PaymentConfirmation(LoginRequiredMixin, FormView):
 	"""
 	Send payment confirmation
 	"""
@@ -45,7 +45,7 @@ class PaymentConfirmation(FormView, LoginRequiredMixin):
 		return super(PaymentConfirmation, self).form_invalid(form)
 
 
-class MoneyOutRequestConfirmation(FormView, LoginRequiredMixin):
+class MoneyOutRequestConfirmation(LoginRequiredMixin, FormView):
 	"""
 	Send money out request confirmation
 	"""
@@ -87,7 +87,7 @@ class MoneyOutRequestConfirmation(FormView, LoginRequiredMixin):
 		return super(MoneyOutRequestConfirmation, self).form_invalid(form)
 
 
-class ApproveOrder(FormView, LoginRequiredMixin):
+class ApproveOrder(LoginRequiredMixin, FormView):
 	"""
 	Notify freelancers about new order by keywords
 	"""
@@ -110,7 +110,7 @@ class ApproveOrder(FormView, LoginRequiredMixin):
 		return super(ApproveOrder, self).form_invalid(form)
 
 
-class MessageFromSupport(FormView, LoginRequiredMixin):
+class MessageFromSupport(LoginRequiredMixin, FormView):
 	"""
 	Send message from support
 	"""
@@ -152,7 +152,7 @@ class MessageFromSupport(FormView, LoginRequiredMixin):
 		return super(MessageFromSupport, self).form_invalid(form)
 
 
-class LeaveOrderFeedback(FormView, LoginRequiredMixin):
+class LeaveOrderFeedback(LoginRequiredMixin, FormView):
 	"""
 	Send order feedback
 	"""
@@ -298,7 +298,7 @@ class PaymentSuccess(View):
 			return HttpResponse('', status_code=200)
 
 
-class IndexPage(View, LoginRequiredMixin):
+class IndexPage(LoginRequiredMixin, View):
 	template = 'tg_bot/index.html'
 
 	def get(self, request):
