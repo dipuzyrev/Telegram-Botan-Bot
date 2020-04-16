@@ -351,7 +351,6 @@ def new_message(update: Updater, context: CallbackContext):
 				context.user_data['forms_data']['order_feedback_form']['step2'] = text
 				send_order_feedback(context)
 				context.user_data['state'] = State.ORDER_FEEDBACK_STEP3_SENT
-				save_state_log = False
 
 			else:
 				go_to_start(update, context)
@@ -710,9 +709,8 @@ def show_state(update, context, add_to_log=True):
 	elif state_to_show == State.ORDER_FEEDBACK_STEP3_SENT:
 		update.message.reply_html(
 			text='Отлично, заявка отправлена.',
-			reply_markup=ReplyKeyboardMarkup(build_start_keyboard(context), True, True)
 		)
-		context.user_data['state'] = State.START_MENU
+		go_to_start(update, context)
 
 	elif state_to_show == State.ORDER_FEEDBACK_APPROVE:
 		price = context.user_data['current_feedback'].price
