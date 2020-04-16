@@ -260,14 +260,32 @@ class PaymentSuccess(View):
 				order.status = 'paid'
 				order.save()
 
+				if order.customer.payment_message_id:
+					bot.delete_message(
+						chat_id=order.customer.external_id,
+						message_id=order.customer.payment_message_id,
+					)
+
+				orders_as_customer = Order.objects.filter(customer=order.customer).exclude(status='done').exclude(
+					status='canceled').count()
+				orders_as_freelancer = Order.objects.filter(freelancer=order.customer, status='paid').count()
+				orders_count = orders_as_customer + orders_as_freelancer
+				top_row = [btn_new_order]
+				if orders_count:
+					top_row = [btn_new_order, btn_current_orders + f' ({orders_count})']
+
 				notify_user(
 					bot,
 					order.customer.external_id,
-					'',
+					'Теперь на странице заказа тебе доступен чат с исполнителем.\n\nИ ещё кое-что — когда получишь готовую '
+					'работу, не забудь пожалуйста подтвердить выполнение, нажав соответствующую кнопку. Как только ты это '
+					'сделаешь, исполнитель получит оплату за свой труд.',
 					'order_paid.png',
 					None,
-					[[InlineKeyboardButton(f'Открыть заказ', callback_data=f'VIEW_ORDER: {order.id}')]]
+					None,
+					[top_row, [btn_balance, btn_statistics], [btn_settings, btn_support]]
 				)
+
 				notify_user(
 					bot,
 					order.freelancer.external_id,

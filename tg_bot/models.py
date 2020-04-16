@@ -10,6 +10,7 @@ class Profile(models.Model):
     keywords = models.TextField(default='')
     balance = models.IntegerField(default=0)
     promo_code = models.TextField(null=True, blank=True)
+    payment_message_id = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
         return f'#{self.external_id} {self.name}'

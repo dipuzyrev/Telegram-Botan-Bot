@@ -721,6 +721,10 @@ def show_state(update, context, add_to_log=True):
 		context.user_data['current_order'].freelancer = context.user_data['current_feedback'].freelancer
 		context.user_data['current_order'].save()
 
+		profile = get_profile(context.user_data['chat_id'])
+		profile.payment_message_id = update.message.message_id + 1
+		profile.save()
+
 		update.message.reply_html(
 			text='Отлично! Осталось оплатить заказ и исполнитель начнёт работу.',
 			reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(
@@ -761,7 +765,7 @@ def notify_admin(bot, text, photo=None, document=None, inline_buttons=None):
 
 
 @log_errors
-def notify_user(bot, user_chat_id, text, photo=None, document=None, inline_buttons=None):
+def notify_user(bot, user_chat_id, text, photo=None, document=None, inline_buttons=None, keyboard=None):
 	"""
 	Notifies user about something
 	:param context: callback context
@@ -771,51 +775,35 @@ def notify_user(bot, user_chat_id, text, photo=None, document=None, inline_butto
 	:return:
 	"""
 
+	markup = ''
 	if inline_buttons:
-		if photo:
-			bot.send_photo(
-				chat_id=user_chat_id,
-				caption=text,
-				photo=open(settings.BASE_DIR + '/static/img/' + photo, 'rb'),
-				parse_mode='HTML',
-				reply_markup=InlineKeyboardMarkup(inline_buttons)
-			)
-		elif document:
-			bot.send_document(
-				chat_id=user_chat_id,
-				caption=text,
-				document=open(settings.BASE_DIR + '/static/img/' + document, 'rb'),
-				parse_mode='HTML',
-				reply_markup=InlineKeyboardMarkup(inline_buttons)
-			)
-		else:
-			bot.send_message(
-				chat_id=user_chat_id,
-				text=text,
-				parse_mode='HTML',
-				reply_markup=InlineKeyboardMarkup(inline_buttons)
-			)
+		markup = InlineKeyboardMarkup(inline_buttons)
+	elif keyboard:
+		markup = ReplyKeyboardMarkup(keyboard, True)
+
+	if photo:
+		bot.send_photo(
+			chat_id=user_chat_id,
+			caption=text,
+			photo=open(settings.BASE_DIR + '/static/img/' + photo, 'rb'),
+			parse_mode='HTML',
+			reply_markup=markup
+		)
+	elif document:
+		bot.send_document(
+			chat_id=user_chat_id,
+			caption=text,
+			document=open(settings.BASE_DIR + '/static/img/' + document, 'rb'),
+			parse_mode='HTML',
+			reply_markup=markup
+		)
 	else:
-		if photo:
-			bot.send_photo(
-				chat_id=user_chat_id,
-				caption=text,
-				photo=open(settings.BASE_DIR + '/static/img/' + photo, 'rb'),
-				parse_mode='HTML',
-			)
-		elif document:
-			bot.send_document(
-				chat_id=user_chat_id,
-				caption=text,
-				document=open(settings.BASE_DIR + '/static/img/' + document, 'rb'),
-				parse_mode='HTML',
-			)
-		else:
-			bot.send_message(
-				chat_id=user_chat_id,
-				text=text,
-				parse_mode='HTML',
-			)
+		bot.send_message(
+			chat_id=user_chat_id,
+			text=text,
+			parse_mode='HTML',
+			reply_markup=markup
+		)
 
 
 @log_errors
