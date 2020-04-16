@@ -351,6 +351,7 @@ def new_message(update: Updater, context: CallbackContext):
 				context.user_data['forms_data']['order_feedback_form']['step2'] = text
 				send_order_feedback(context)
 				context.user_data['state'] = State.ORDER_FEEDBACK_STEP3_SENT
+				save_state_log = False
 
 			else:
 				go_to_start(update, context)
